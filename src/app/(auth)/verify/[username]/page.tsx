@@ -1,11 +1,11 @@
+'use client'
 import { Form, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 import { useToast } from '@/components/ui/use-toast'
 import { verifySchema } from '@/schema/verifySchema'
 import { zodResolver } from '@hookform/resolvers/zod'
 import axios, { AxiosError } from 'axios'
 import { ApiError } from 'next/dist/server/api-utils'
-import { useParams } from 'next/navigation'
-import { useRouter } from 'next/router'
+import { useParams, useRouter } from 'next/navigation';
 import { Input } from "@/components/ui/input"
 
 import React from 'react'
@@ -14,8 +14,8 @@ import * as z  from 'zod'
 import { Button } from '@/components/ui/button'
 
 function VerifyAccount() {
-    const router = useRouter()
-    const params = useParams<{username: string}>()
+    const router = useRouter();
+    const params = useParams<{ username: string }>();
     const {toast} = useToast()
     const form = useForm<z.infer<typeof verifySchema>>({
         resolver: zodResolver(verifySchema),
@@ -33,7 +33,7 @@ function VerifyAccount() {
                 title: "Success",
                 description: response.data.message
             })
-            router.replace('sign-in')
+            router.replace('/sign-in')
         } catch (error) {
             const axiosError = error as AxiosError<ApiError>
             let errorMessage = axiosError.response?.data.message
