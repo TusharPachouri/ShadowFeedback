@@ -16,7 +16,7 @@ import { User } from "next-auth";
 import { useSession } from "next-auth/react";
 import { useCallback, useEffect, useState } from "react"
 import { useForm } from "react-hook-form";
-
+//slfjdalj:3000/api/get-messages
 function Page() {
   const [messages, setMessages] = useState<Message[]>([])
   const [isLoading, setIsLoading] = useState(false);

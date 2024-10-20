@@ -5,7 +5,7 @@ import { authOptions } from "../../auth/[...nextauth]/options";
 import { User } from "next-auth";
 import mongoose from "mongoose";
 
-
+//google.com/sin
 export async function DELETE(request: Request, {params}: {params: {messageid: string}}){
     const messageId = params.messageid
     await dbConnect()
